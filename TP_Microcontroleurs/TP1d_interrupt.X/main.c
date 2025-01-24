@@ -1,19 +1,32 @@
-#include "led.h" // Bits de configuration
+#include <xc.h>
+#include "timer.h"
+#include "caterpillar.h"
 
-// définitino des groupes de led
-#define GROUP_1 MASK_LED1 | MASK_LED2 | MASK_LED3 | MASK_LED4
-#define GROUP_2 MASK_LED5 | MASK_LED6 | MASK_LED7 | MASK_LED8
+void __interrupt() ISR(void);
 
-void main(void) {      
-    output_D(GROUP_1);
-    output_B(GROUP_2);
+// Routine d'interruption
+void __interrupt() ISR(void) {
+    if (PIR1bits.TMR2IF) {    // Vérifier si l'interruption vient de Timer 2
+        PIR1bits.TMR2IF = 0;  // Réinitialiser le drapeau d'interruption
+        char state = get_state();
+        next_state(&state);
+        LATD = get_D_from_state(state);
+        LATB = get_B_from_state(state);
+    }
+}
 
-    while(1){        
-        enable_D(GROUP_1);
-        disable_B(GROUP_2);
-        __delay_ms(500);
-        disable_D(GROUP_1);
-        enable_B(GROUP_2);
-        __delay_ms(500);
+// Fonction principale
+void main(void) {
+    // Initialisation
+    timer2_init();
+    TRISD = 0x00;              // On met tout le port D en sortie
+    TRISB = 0x00;              // On met tout le port B en sortie
+    char state = 0x01;         // représente l'été du chenillar
+    LATD = get_D_from_state(state);        
+    LATB = get_B_from_state(state);
+
+    // Boucle principale
+    while (1) {
+        // Rien à faire ici, la gestion est assurée par l'interruption
     }
 }
