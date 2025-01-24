@@ -1,9 +1,10 @@
 #include "timer.h"
 
 void timer2_init(void) {
+    // voir les choix dans hyperparameter.ipynb
     T2CONbits.T2CKPS = 0b11;  // Prédiviseur 1:64
     T2CONbits.T2OUTPS = 0b1111; // Postdiviseur 1:16
-    PR2 = 255;               // Régler la période (256 counts)
+    PR2 = 243;               // Régler la période (256 counts)
 
     TMR2 = 0;                 // Initialiser le compteur à 0
     PIR1bits.TMR2IF = 0;      // Réinitialiser le drapeau d'interruption
