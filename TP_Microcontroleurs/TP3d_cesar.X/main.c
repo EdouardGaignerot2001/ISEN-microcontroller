@@ -1,7 +1,9 @@
 #include "configbits.h"
 #include "usart.h"
+#include "adc.h"
+#include "cesar.h"
 
-#define _XTAL_FREQ 8000000
+State s;
 
 void __interrupt() ISR(void);
 
@@ -9,29 +11,40 @@ void __interrupt() ISR(void)
 {
     if (PIR1bits.RCIF)
     {
-        if (RC1STAbits.OERR)
-        {
-            RC1STAbits.CREN = 0;
-            RC1STAbits.CREN = 1;
-        }
-        else
-        {
-            // send_char(RC1REG);
-            TX1REG = RC1REG;
-            // display value on leds
-            LATD = RC1REG & 0xf;
-            LATB = RC1REG >> 4;
-        }
-        PIR1bits.RCIF = 0;
+        handle_char_received(&s);
+    }
+    if (INTF)
+    {
+        handle_button_clicked(&s);
     }
 }
 
 void main(void) {
     config_USART();
     config_USART_RX();
-    TRISD = 0;
-    TRISB = 0;
-
+    
+    SPI_InitializePins();
+    LCD_InitializePins();
+    SPI_Initialize();
+    LCD_Initialize();
+    
+    button_init();
+    
+    init_adc();
+        
+    s.crypting = true;
+    s.offset = 1;
+    
+    update_lcd(s);
+    
+    char result;
+    
     while (1) {
+        result = ad_read_max_36();
+        if (result != s.offset)
+        {
+            s.offset = result;
+            update_lcd(s);
+        }
     }
 }
