@@ -25,7 +25,7 @@ begin
         b <= '0';
         wait for 50 ns;
 		  assert s = '0' report "Sum error in half adder (0 + 0)" severity error;
-		  assert C = '0' report "Carry error in half adder (0 + 0)" severity error;
+		  assert c = '0' report "Carry error in half adder (0 + 0)" severity error;
 
         
         -- Test case 2: a=0, b=1

@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Tue Apr 15 17:25:19 2025
+Analysis & Synthesis Status : Successful - Tue Apr 22 10:04:12 2025
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : TP1_additionneur
-Top-level Entity Name : HALF_ADDER
+Top-level Entity Name : FULL_ADDER
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 0
-Total pins : 4
+Total pins : 5
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
