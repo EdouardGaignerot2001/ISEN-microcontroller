@@ -25,19 +25,10 @@ LIBRARY work;
 ENTITY full_adder_4b IS 
 	PORT
 	(
-		a0 :  IN  STD_LOGIC;
-		b0 :  IN  STD_LOGIC;
+		a : IN std_logic_vector(3 downto 0);
+		b : IN std_logic_vector(3 downto 0);
+		s : OUT std_logic_vector(3 downto 0);
 		cin :  IN  STD_LOGIC;
-		a1 :  IN  STD_LOGIC;
-		a2 :  IN  STD_LOGIC;
-		b2 :  IN  STD_LOGIC;
-		a3 :  IN  STD_LOGIC;
-		b3 :  IN  STD_LOGIC;
-		b1 :  IN  STD_LOGIC;
-		s0 :  OUT  STD_LOGIC;
-		s1 :  OUT  STD_LOGIC;
-		s2 :  OUT  STD_LOGIC;
-		s3 :  OUT  STD_LOGIC;
 		cout :  OUT  STD_LOGIC
 	);
 END full_adder_4b;
@@ -63,34 +54,34 @@ BEGIN
 
 
 b2v_inst : full_adder
-PORT MAP(a => a0,
-		 b => b0,
+PORT MAP(a => a(0),
+		 b => b(0),
 		 cin => cin,
-		 s => s0,
+		 s => s(0),
 		 c => SYNTHESIZED_WIRE_0);
 
 
 b2v_inst1 : full_adder
-PORT MAP(a => a1,
-		 b => b1,
+PORT MAP(a => a(1),
+		 b => b(1),
 		 cin => SYNTHESIZED_WIRE_0,
-		 s => s1,
+		 s => s(1),
 		 c => SYNTHESIZED_WIRE_1);
 
 
 b2v_inst2 : full_adder
-PORT MAP(a => a2,
-		 b => b2,
+PORT MAP(a => a(2),
+		 b => b(2),
 		 cin => SYNTHESIZED_WIRE_1,
-		 s => s2,
+		 s => s(2),
 		 c => SYNTHESIZED_WIRE_2);
 
 
 b2v_inst3 : full_adder
-PORT MAP(a => a3,
-		 b => b3,
+PORT MAP(a => a(3),
+		 b => b(3),
 		 cin => SYNTHESIZED_WIRE_2,
-		 s => s3,
+		 s => s(3),
 		 c => cout);
 
 

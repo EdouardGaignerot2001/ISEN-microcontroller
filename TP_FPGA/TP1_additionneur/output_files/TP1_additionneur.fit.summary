@@ -1,20 +1,20 @@
-Fitter Status : Successful - Tue Apr 22 11:49:26 2025
+Fitter Status : Successful - Mon Apr 28 15:22:41 2025
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : TP1_additionneur
-Top-level Entity Name : full_adder_4b
+Top-level Entity Name : toplevel
 Family : Cyclone V
-Device : 5CGXFC7C7F23C8
+Device : 5CGXFC5C6F27C7
 Timing Models : Final
-Logic utilization (in ALMs) : 4 / 56,480 ( < 1 % )
+Logic utilization (in ALMs) : 4 / 29,080 ( < 1 % )
 Total registers : 0
-Total pins : 14 / 268 ( 5 % )
+Total pins : 28 / 364 ( 8 % )
 Total virtual pins : 0
-Total block memory bits : 0 / 7,024,640 ( 0 % )
-Total RAM Blocks : 0 / 686 ( 0 % )
-Total DSP Blocks : 0 / 156 ( 0 % )
+Total block memory bits : 0 / 4,567,040 ( 0 % )
+Total RAM Blocks : 0 / 446 ( 0 % )
+Total DSP Blocks : 0 / 150 ( 0 % )
 Total HSSI RX PCSs : 0 / 6 ( 0 % )
 Total HSSI PMA RX Deserializers : 0 / 6 ( 0 % )
 Total HSSI TX PCSs : 0 / 6 ( 0 % )
 Total HSSI PMA TX Serializers : 0 / 6 ( 0 % )
-Total PLLs : 0 / 13 ( 0 % )
+Total PLLs : 0 / 12 ( 0 % )
 Total DLLs : 0 / 4 ( 0 % )

@@ -15,19 +15,10 @@ architecture tb of tb_full_adder_4b is-- Inputs
     signal cout : std_logic;
 begin
     UUT : entity work.full_adder_4b port map (
-        a0 => a(0),
-        b0 => b(0),
-        a1 => a(1),
-        b1 => b(1),
-        a2 => a(2),
-        b2 => b(2),
-        a3 => a(3),
-        b3 => b(3),
+        a => a,
+        b => b,
         cin => cin,
-        s0 => s(0),
-        s1 => s(1),
-        s2 => s(2),
-        s3 => s(3),
+        s => s,
         cout => cout
     );
 
